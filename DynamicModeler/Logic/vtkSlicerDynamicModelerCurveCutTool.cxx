@@ -125,6 +125,7 @@ vtkSlicerDynamicModelerCurveCutTool::vtkSlicerDynamicModelerCurveCutTool()
   this->SelectionFilter->SetInputConnection(this->InputModelToWorldTransformFilter->GetOutputPort());
   this->SelectionFilter->GenerateSelectionScalarsOn();
   this->SelectionFilter->SetSelectionModeToSmallestRegion();
+  this->SelectionFilter->DijkstraEdgeSearchOn();
 
   this->ClipFilter = vtkSmartPointer<vtkClipPolyData>::New();
   this->ClipFilter->SetInputConnection(this->SelectionFilter->GetOutputPort());
